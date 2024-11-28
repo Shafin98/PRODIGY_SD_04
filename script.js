@@ -12,7 +12,11 @@ document.addEventListener("DOMContentLoaded", function () {
         input.type = "number";
         input.min = 1;
         input.max = 9;
-        input.setAttribute("maxlength", 1);
+        input.addEventListener("input", function () {
+          if (this.value.length > 1) {
+            this.value = this.value.slice(0, 1);
+          }
+        });
         cell.appendChild(input);
         row.appendChild(cell);
       }
