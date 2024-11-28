@@ -60,7 +60,7 @@ body {
     outline: 2px solid #9d59d4; /* Highlight focused cells */
   }
   
-  /* Add bold borders for inner 3x3 grids */
+  /* Added bold borders for inner 3x3 grids */
   tr:nth-child(3n) td {
     border-bottom: 3px solid black; /* Bold horizontal border every 3 rows */
   }
@@ -71,22 +71,22 @@ body {
   
   /* Ensure outermost grid borders are bold */
   tr:first-child td {
-    border-top: 3px solid black; /* Bold top border */
+    border-top: 3px solid black; 
   }
   
   td:first-child {
-    border-left: 3px solid black; /* Bold left border */
+    border-left: 3px solid black; 
   }
   
   tr:last-child td {
-    border-bottom: 3px solid black; /* Bold bottom border */
+    border-bottom: 3px solid black; 
   }
   
   td:last-child {
-    border-right: 3px solid black; /* Bold right border */
+    border-right: 3px solid black; 
   }
   
-  /* Buttons */
+
   button {
     margin: 10px;
     padding: 10px 20px;
