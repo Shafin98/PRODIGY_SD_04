@@ -15,7 +15,15 @@ document.addEventListener("DOMContentLoaded", function () {
         input.addEventListener("input", function () {
           if (this.value.length > 1) {
             this.value = this.value.slice(0, 1);
-          }
+          } if (this.value !== "") {
+            this.setAttribute("data-initial", "true"); // Mark initial input
+            this.style.backgroundColor = "#7a34a8"; // Highlight initial input
+            this.style.color = "white";
+          } else {
+            this.removeAttribute("data-initial"); // Remove the initial marker if empty
+            this.style.backgroundColor = ""; // Reset background color
+            this.style.color = ""; // Reset text color
+        }
         });
         cell.appendChild(input);
         row.appendChild(cell);
@@ -34,12 +42,18 @@ document.addEventListener("DOMContentLoaded", function () {
       });
       return values;
     }
+
+    
   
-    // Populate the grid with solved values
+    // Populating the grid with solved values
     function setGridValues(values) {
       Array.from(grid.querySelectorAll("tr")).forEach((row, i) => {
         Array.from(row.querySelectorAll("input")).forEach((input, j) => {
-          input.value = values[i][j] === 0 ? "" : values[i][j];
+          if (!input.hasAttribute("data-initial")) {
+            input.value = values[i][j] === 0 ? "" : values[i][j];
+            input.style.backgroundColor = ""; // Reset background color for solved cells
+            input.style.color = ""; // Reset text color
+        }
         });
       });
     }
@@ -87,7 +101,12 @@ document.addEventListener("DOMContentLoaded", function () {
   
     // Clear button listener
     clearButton.addEventListener("click", () => {
-      setGridValues(Array(9).fill(0).map(() => Array(9).fill(0)));
+        Array.from(grid.querySelectorAll("input")).forEach(input => {
+          input.value = "";
+          input.style.backgroundColor = ""; 
+          input.style.color = "";
+          input.removeAttribute("data-initial");
+      });
     });
   });
   
