@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const grid = document.getElementById("sudoku-grid");
   const solveButton = document.getElementById("solve-button");
   const clearButton = document.getElementById("clear-button");
-  const messageBox = document.getElementById("message-box"); // Element to show messages to the user
+  const messageBox = document.getElementById("message-box"); 
 
   // Generate a 9x9 Sudoku grid
   for (let i = 0; i < 9; i++) {
@@ -48,14 +48,14 @@ document.addEventListener("DOMContentLoaded", function () {
   // Highlight invalid cells
   function highlightInvalidCells(grid) {
     Array.from(grid.querySelectorAll("input")).forEach(input => {
-      input.style.backgroundColor = ""; // Reset background color
+      input.style.backgroundColor = ""; 
     });
 
     // Highlight duplicates in rows, columns, and sub-grids
     function markCells(indices) {
       indices.forEach(([row, col]) => {
         const cell = grid.querySelectorAll("tr")[row].querySelectorAll("input")[col];
-        cell.style.backgroundColor = "#ff9999"; // Highlight invalid cells in red
+        cell.style.backgroundColor = "#ff9999"; 
       });
     }
 
@@ -175,13 +175,13 @@ document.addEventListener("DOMContentLoaded", function () {
       Array.from(row.querySelectorAll("input")).forEach((input, j) => {
         if (input.hasAttribute("data-initial")) {
           // Keep the initial inputs and their styles intact
-          input.style.backgroundColor = "#7a34a8"; // Retain the highlight color
+          input.style.backgroundColor = "#7a34a8"; 
           input.style.color = "white";
         } else {
           // Update other cells with solved values
           input.value = values[i][j] === 0 ? "" : values[i][j];
-          input.style.backgroundColor = ""; // Reset background color for solved cells
-          input.style.color = ""; // Reset text color
+          input.style.backgroundColor = ""; 
+          input.style.color = ""; 
         }
       });
     });
