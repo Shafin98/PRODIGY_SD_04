@@ -107,3 +107,9 @@ input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
+
+.message-box {
+  display:none; 
+  font-size: 16px; 
+  margin-top: 10px;
+}
